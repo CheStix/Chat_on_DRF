@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # my apps
+    'chat_room.apps.ChatRoomConfig',
     # 3 party apps
     'django_summernote',
     'rest_framework',
