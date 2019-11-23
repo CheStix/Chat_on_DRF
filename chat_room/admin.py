@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import ChatRoom
+from .models import ChatRoom, Message
 
 
 class ChatRoomAdmin(admin.ModelAdmin):
@@ -12,4 +12,9 @@ class ChatRoomAdmin(admin.ModelAdmin):
         return '/n'.join([user.username for user in obj.invited.all()])
 
 
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ('room', 'user', 'text', 'data')
+
+
+admin.site.register(Message, MessageAdmin)
 admin.site.register(ChatRoom, ChatRoomAdmin)
