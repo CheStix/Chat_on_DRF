@@ -8,7 +8,7 @@ class ChatRoom(models.Model):
     """
     creater = models.ForeignKey(User, verbose_name='Создатель', on_delete=models.CASCADE)
     invited = models.ManyToManyField(User, verbose_name='Участники', related_name='invited_user')
-    data = models.DateTimeField('Дата создания', auto_now_add=True)
+    date = models.DateTimeField('Дата создания', auto_now_add=True)
 
     class Meta:
         verbose_name = 'Комната'
@@ -21,7 +21,7 @@ class Message(models.Model):
     room = models.ForeignKey(ChatRoom, verbose_name='Комната', on_delete=models.CASCADE)
     user = models.ForeignKey(User, verbose_name='Пользователь', on_delete=models.CASCADE)
     text = models.TextField('Сообщение', max_length=500)
-    data = models.DateTimeField('Отправлено', auto_now_add=True)
+    date = models.DateTimeField('Отправлено', auto_now_add=True)
 
     class Meta:
         verbose_name = 'Сообщение'

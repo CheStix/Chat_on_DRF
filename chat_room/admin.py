@@ -6,14 +6,14 @@ from .models import ChatRoom, Message
 class ChatRoomAdmin(admin.ModelAdmin):
     """Комнаты чата
     """
-    list_display = ('creater', 'invited_user', 'data')
+    list_display = ('creater', 'invited_user', 'date')
 
     def invited_user(self, obj):
         return '/n'.join([user.username for user in obj.invited.all()])
 
 
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ('room', 'user', 'text', 'data')
+    list_display = ('room', 'user', 'text', 'date')
 
 
 admin.site.register(Message, MessageAdmin)
