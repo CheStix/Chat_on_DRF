@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="rooms">
         <ul>
             <li v-for="room in rooms">
-                <h3>{{room.creater.username}}</h3>
+                <h3 @click="openDialog(room.id)">{{room.creater.username}}</h3>
                 {{room.date}}
             </li>
         </ul>
@@ -34,11 +34,22 @@
                         this.rooms=response.data.data
                     }
                 })
+            },
+            openDialog(id){
+                this.$emit("openDialog", id)
             }
         }
     }
 </script>
 
 <style scoped>
-
+    .rooms {
+        width: 15%;
+        height: 100px;
+        margin-top: 10px;
+        float: left;
+    }
+    h3 {
+        cursor: pointer;
+    }
 </style>
